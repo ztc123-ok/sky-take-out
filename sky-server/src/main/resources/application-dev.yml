@@ -11,3 +11,8 @@ sky:
     access-key-id: LTAI5tHMn23hvgsUCkp15bfM
     access-key-secret: CgzHnVwHsb47qacd7xeVqdyEVFPAgJ
     bucket-name: ztc-sky-take-out
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1

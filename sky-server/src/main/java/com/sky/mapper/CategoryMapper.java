@@ -8,6 +8,7 @@ import com.sky.enumeration.OperationType;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -51,4 +52,7 @@ public interface CategoryMapper {
      */
     @AutoFill(value = OperationType.UPDATE)
     void update(Category category);
+
+    @Select("select * from category where id = #{id}")
+    Category getById(Long id);
 }

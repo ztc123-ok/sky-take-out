@@ -54,4 +54,11 @@
         </where>
         order by create_time desc
     </select>
+
+    <delete id="deleteByIds">
+        delete from setmeal where id in
+        <foreach collection="ids" separator="," item="id" open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -24,6 +24,10 @@ public class SetmealServiceImpl implements SetmealService {
     @Autowired
     private SetmealDishMapper setmealDishMapper;
 
+    /**
+     * 新增套餐
+     * @param setmealDTO
+     */
     @Override
     public void save(SetmealDTO setmealDTO) {
         Setmeal setmeal = new Setmeal();
@@ -42,6 +46,11 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDishMapper.insertBatch(setmealDishes);
     }
 
+    /**
+     * 套餐分页查询
+     * @param setmealPageQueryDTO
+     * @return
+     */
     @Override
     public PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO) {
         PageHelper.startPage(setmealPageQueryDTO.getPage(),setmealPageQueryDTO.getPageSize());
@@ -50,5 +59,14 @@ public class SetmealServiceImpl implements SetmealService {
         Long total = page.getTotal();
         List<Setmeal> records = page.getResult();
         return new PageResult(total,records);
+    }
+
+    /**
+     * 批量删除套餐
+     * @param ids
+     */
+    @Override
+    public void deleteByIds(List<Long> ids) {
+        setmealMapper.deleteByIds(ids);
     }
 }

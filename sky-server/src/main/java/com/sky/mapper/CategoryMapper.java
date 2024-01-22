@@ -53,6 +53,11 @@ public interface CategoryMapper {
     @AutoFill(value = OperationType.UPDATE)
     void update(Category category);
 
+    /**
+     * 根据id查询分类
+     * @param id
+     * @return
+     */
     @Select("select * from category where id = #{id}")
     Category getById(Long id);
 }

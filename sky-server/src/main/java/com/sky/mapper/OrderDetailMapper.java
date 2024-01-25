@@ -16,9 +16,9 @@ public interface OrderDetailMapper {
 
     /**
      * 根据订单id查询
-     * @param id
+     * @param orderId
      * @return
      */
-    @Select("select * from order_detail where order_id = #{id}")
-    List<OrderDetail> getByOrderId(Long id);
+    @Select("select * from order_detail where order_id = #{orderId}")
+    List<OrderDetail> getByOrderId(Long orderId);
 }

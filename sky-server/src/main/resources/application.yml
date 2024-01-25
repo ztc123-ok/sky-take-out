@@ -53,3 +53,4 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+    #微信支付配置...

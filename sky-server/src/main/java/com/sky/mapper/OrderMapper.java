@@ -37,15 +37,6 @@ public interface OrderMapper {
 
 
     /**
-     * 用于替换微信支付更新数据库状态的问题
-     *
-     * @param orderStatus
-     * @param orderPaidStatus
-     */
-    @Update("update orders set status = #{orderStatus},pay_status = #{orderPaidStatus} ,checkout_time = #{check_out_time} where number = #{number}")
-    void updateStatus(Integer orderStatus, Integer orderPaidStatus, LocalDateTime check_out_time, String number);
-
-    /**
      * 订单分页查询
      * @return
      */
@@ -74,4 +65,12 @@ public interface OrderMapper {
      */
     @Select("select * from orders where status = #{status} and order_time < #{orderTime}")
     List<Orders> getByStatusAndOrderTimeLT(Integer status, LocalDateTime orderTime);
+
+    /**
+     * 根据订单号获取订单
+     * @param orderNumber
+     * @return
+     */
+    @Select("select * from orders where number = #{orderNumber}")
+    Orders getByOrderNumber(String orderNumber);
 }
